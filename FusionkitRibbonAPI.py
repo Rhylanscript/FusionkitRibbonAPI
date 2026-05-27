@@ -29,10 +29,15 @@ fusionkit.unregister_panel("my_panel_id")
 ----------------------------------------------
 """
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 import sys
 import os
+
+# Register this module instance under its public name immediately so
+# `import FusionkitRibbonAPI` in content add-ins always resolves to
+# this same object regardless of how Fusion named it internally
+sys.modules["FusionkitRibbonAPI"] = sys.modules[__name__]
 
 # Add this files dir to sys.path so content add-ins can
 # import this module regardless of their own location.
@@ -40,15 +45,18 @@ _here = os.path.dirname(os.path.abspath(__file__))
 if _here not in sys.path: sys.path.insert(0, _here)
 
 import adsk.core
+import adsk.fusion
 
-from core import *
+from core.tab import TabManager
+from core.panel import ButtonSpec, FusionkitPanel
+from core.registry import registry
 
 # --------------------------------------------
 #       MODULE STATE
 # --------------------------------------------
 
-_ui: adsk.core.UserInterface | None = None
-_tab_manager: TabManager | None = None
+_ui = None
+_tab_manager = None
 
 # --------------------------------------------
 #       ADD-IN LIFECYCLE
