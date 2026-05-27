@@ -1,0 +1,13 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "addin",
+    "id": "FusionkitRibbonAPI",
+    "author": "Rhylanscript",
+    "description": {
+        "": "Simple API to help with ribbon management in the Design workspace."
+    },
+    "version": "0.0.1",
+    "runOnStartup": true,
+    "supportedOS": "windows|mac",
+    "editEnabled": true
+}
