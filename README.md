@@ -4,6 +4,9 @@ A Fusion 360 add-in that provides a shared **Fusionkit** ribbon tab that allows 
 
 Content add-ins never touch Fusion's ribbon or event system directly, they simply import this API and describe what they want.
 
+Example of an add-in hooking into Fusion 360 UI through the API:
+![Fusion360DiscordRPC using FusionkitRibbonAPI to modify Fusion UI][preview]
+
 ## Installation
 
 1. Copy the `FusionkitRibbonAPI` folder into Fusion 360's add-ins directory:
@@ -121,3 +124,4 @@ See [changelog][changelog] for full details of version changes!
 
 <!-- FILE LINKS -->
 [changelog]: CHANGELOG.md
+[preview]: resources/preview.png
